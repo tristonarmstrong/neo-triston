@@ -20,6 +20,19 @@ purge_nvim_directory() {
     fi
 }
 
+# Function to create a backup of the existing nvim directory
+create_backup() {
+    if [ -d "$destination_dir" ]; then
+        backup_dir="$destination_dir.bak"
+        if [ -d "$backup_dir" ]; then
+            echo "Backup directory '$backup_dir' already exists."
+        else
+            mv "$destination_dir" "$backup_dir"
+            echo "Created backup of '$destination_dir' in '$backup_dir'"
+        fi
+    fi
+}
+
 # Function to move all files except the "install" file
 move_files_except_install() {
     for file in "$source_dir"/*; do
@@ -29,15 +42,30 @@ move_files_except_install() {
     done
 }
 
+
 # Check for command line arguments
-while getopts "p" opt; do
+purge_flag=false
+backup_flag=false
+
+
+
+# Check for command line arguments
+while getopts "bp" opt; do
     case "$opt" in
+        b) # Create a backup of the existing nvim directory
+            create_backup
+            backup_flag=true
+            ;;
         p) # Purge the nvim directory
+            if [ "$backup_flag" = true ]; then
+                echo "Error: -b and -p flags cannot be used at the same time."
+                exit 1
+            fi
             purge_nvim_directory
-            exit 0
+            purge_flag=true
             ;;
         \?)
-            echo "Usage: $0 [-p] (optional -p flag to purge the nvim directory)"
+            echo "Usage: $0 [-b] [-p] (optional -b flag to create a backup, -p flag to purge the nvim directory)"
             exit 1
             ;;
     esac
@@ -59,5 +87,7 @@ move_files_except_install
 # Remove the current directory
 rm -r "$source_dir"
 
-echo "All files except 'install' have been moved to '$destination_dir' and the current directory has been removed."
-
+if [ "$backup_flag" = true ]; then
+    echo "All files except 'install' have been moved to '$destination_dir', and a backup has been created."
+elif [ "$purge_flag" = true ]; then
+    echo "All files except 'install' have been moved to '$destination_dir'."
