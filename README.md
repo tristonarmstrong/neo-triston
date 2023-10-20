@@ -32,7 +32,7 @@ This script simplifies the process of migrating your Neovim configuration files 
 
    After running the script, your Neovim configuration files will be located in `$HOME/.config/nvim`.
 
-   ![MindBlown](https://giphy.com/embed/26ufdipQqU2lhNA4g)
+   ![MindBlown](https://media2.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif)
 
 5. **Enjoy Neovim!**
 
