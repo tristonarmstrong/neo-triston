@@ -22,13 +22,21 @@ This script simplifies the process of migrating your Neovim configuration files 
     chmod +x install.sh && ./install.sh
    ```
 
-3. **Purge Existing Configuration (Optional):**
+3. **Command Line Arguments:**
 
-   You can use the `-p` flag to purge your existing Neovim configuration in `$HOME/.config/nvim` before moving your files. This is useful if you want to start with a clean slate:
-
-   ```bash
-   ./install.sh -p
-   ```
+   > [!NOTE]
+   > these arguments are not allowed to be used together
+    
+   - **Purge Existing Configuration (Optional):**
+        You can use the `-p` flag to purge your existing Neovim configuration in `$HOME/.config/nvim` before moving your files. This is useful if you want to start with a clean slate.
+      ```bash
+      ./install.sh -p
+      ```
+    - **Backup Current Configuration (Optional):**
+        You can use the `-b` flag to create a backup of your current nvim directory within the nvim directory. The new backup will be called `nvim.bak`. This is useful if you want to NOT completely irradicate your current config.
+      ```bash
+      ./install.sh -b
+      ```
 
 4. **Check Your New Neovim Configuration:**
 
