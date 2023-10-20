@@ -1,12 +1,13 @@
-# 🚀 Neovim Config Migration Script 🚀
+# 🚀 Neo-Triston Neovim Config 🚀
 
+## The Install Script
 This script simplifies the process of migrating your Neovim configuration files to the standard `$HOME/.config/nvim` directory. It works on macOS, Linux, and even reminds you how much we hate Windows.
 
 ## How to Use
 
-1. **Download the Script:**
+1. **Clone the Repository:**
 
-   You can download the script by copying its contents from your browser or using the following commands:
+   You can clone the repo by using the following commands or downloading the zip:
 
    ```bash
     git clone https://github.com/tristonarmstrong/neo-triston.git
