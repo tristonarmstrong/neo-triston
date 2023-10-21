@@ -8,7 +8,7 @@ if command -v nvim &> /dev/null; then
     echo "_____"
     echo "     | Exiting w/o installing"
     echo "     v"
-    exit 1
+    return 
 fi
 
     # Determine the package manager based on your OS (apt, pacman, brew, etc.)
