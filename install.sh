@@ -12,6 +12,11 @@ source_dir="$(pwd)"
 # Define the destination directory
 destination_dir="$HOME/.config/nvim"
 
+# Check for command line argument flags
+purge_flag=false
+backup_flag=false
+
+
 # Function to purge the nvim directory
 purge_nvim_directory() {
     if [ -d "$destination_dir" ]; then
@@ -64,30 +69,47 @@ check_and_create_directory(){
 }
 
 
-# Check for command line arguments
-purge_flag=false
-backup_flag=false
+handle_b_opt() {
+  create_backup
+  backup_flag=true
+  handle_default_opt
+  echo "-> All files except 'install' have been moved to '$destination_dir', and a backup has been created."
+}
 
+handle_p_opt() {
+  purge_nvim_directory
+  purge_flag=true
+  handle_default_opt 
+  echo "-> All files except 'install' have been moved to '$destination_dir' and previous files have been obliterated"
+}
 
+handle_default_opt() {
+  # check_and_create_directory
+  check_and_create_directory
+
+  # Move all files except the "install" file to the destination directory
+  move_files_except_install
+}
+
+print_and_reject_opts(){
+  echo "!! Error: -b and -p flags cannot be used at the same time."
+  exit 1
+}
 
 # Check for command line arguments
 while getopts "bp" opt; do
     case "${opt}" in
         b) # Create a backup of the existing nvim directory
             if [ "$purge_flag" = true ]; then
-              echo "!! Error: -b and -p flags cannot be used at the same time."
-              exit 1
+              print_and_reject_opts
             fi
-            create_backup
-            backup_flag=true
+            handle_b_opt
             ;;
         p) # Purge the nvim directory
             if [ "$backup_flag" = true ]; then
-              echo "!! Error: -b and -p flags cannot be used at the same time."
-              exit 1
+              print_and_reject_opts
             fi
-            purge_nvim_directory
-            purge_flag=true
+            handle_p_opt
             ;;
         \?)
             echo "~~ Usage: $0 [-b] [-p] (optional -b flag to create a backup, -p flag to purge the nvim directory)"
@@ -96,14 +118,8 @@ while getopts "bp" opt; do
     esac
 done
 
-# check_and_create_directory
-check_and_create_directory
-
-# Move all files except the "install" file to the destination directory
-move_files_except_install
-
-if [ "$backup_flag" = true ]; then
-    echo "-> All files except 'install' have been moved to '$destination_dir', and a backup has been created."
-elif [ "$purge_flag" = true ]; then
-    echo "-> All files except 'install' have been moved to '$destination_dir'."
+if (( $OPTIND == 1 )); then
+  handle_default_opt 
+  echo "-> All files except 'install' have been moved to '$destination_dir'."
 fi
+
