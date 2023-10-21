@@ -192,3 +192,4 @@ if (( $OPTIND == 1 )); then
   echo "-> All files except 'install' have been moved to '$destination_dir'."
 fi
 
+echo " -> NOTE -> if you made a mistake, the .git is still here so feel free to run `git restore .` to restore your files"
