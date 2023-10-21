@@ -71,9 +71,9 @@ create_backup() {
 
 # Finally, `-exec mv {} "$destination_dir"` is used to execute the `mv` command to move the found items
 # to the destination directory, which is specified by `"$destination_dir"`.
-move_files_except_install() {
+move_files_except_a_few() {
 	# Move all files and folders except the ".git" directory and "install.sh" file
-	find "$source_dir" -mindepth 1 -maxdepth 1 ! -name ".git" ! -name "install.sh" -exec mv {} "$destination_dir" \;
+	find "$source_dir" -mindepth 1 -maxdepth 1 ! -name ".git" ! -name "install.sh" ! -name "lib" -exec mv {} "$destination_dir" \;
 }
 
 
@@ -124,14 +124,14 @@ handle_p_opt() {
 
 # The `handle_default_opt` function is an essential component of a larger script, responsible for managing default operations. This function is designed to execute a set of tasks that are easy for humans to understand:
 # 1. **Configuration Directory Verification**: The function commences by verifying the existence of the destination directory where configuration files are stored. It does so by calling the `check_and_create_directory` function, ensuring that the necessary directory structure is in place. If the directory does not exist, the function creates it to ensure the proper location for configuration files.
-# 2. **File Relocation**: After confirming the presence of the destination directory, the function proceeds to move all files and directories from the current directory (the source directory) to the destination directory. This process is orchestrated by the `move_files_except_install` function, which ensures that the "install" file is not moved, preserving its role within the configuration.
+# 2. **File Relocation**: After confirming the presence of the destination directory, the function proceeds to move all files and directories from the current directory (the source directory) to the destination directory. This process is orchestrated by the `move_files_except_a_few` function, which ensures that the "install" file is not moved, preserving its role within the configuration.
 # In summary, the `handle_default_opt` function is responsible for orchestrating two fundamental tasks: verifying the existence and creation of the destination directory for configuration files and moving all files and directories to this destination, excluding the "install" file. This function plays a critical role in setting up and maintaining the configuration directory, ensuring that configuration files are correctly placed and preserved for use.
 handle_default_opt() {
   # check_and_create_directory
   check_and_create_directory
 
   # Move all files except the "install" file to the destination directory
-  move_files_except_install
+  move_files_except_a_few
 }
 
 print_and_reject_opts(){
