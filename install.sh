@@ -115,7 +115,6 @@ check_and_create_directory(){
 # In essence, the `handle_b_opt` function is designed to handle operations related to the creation of a backup when the `-b` option is selected. It orchestrates the backup generation process, flags the operation's status, manages default operations, and communicates the results to the user, thereby ensuring a clear and transparent execution of the script.
 handle_b_opt() {
   create_backup
-  backup_flag=true
   handle_default_opt
   echo "-> All files except 'install' have been moved to '$destination_dir', and a backup has been created."
 }
@@ -127,7 +126,6 @@ handle_b_opt() {
 # In summary, the `handle_p_opt` function is designed to handle operations related to purging the destination directory when the `-p` option is chosen. It orchestrates the purge process, flags the operation's status, manages default operations, and communicates the results to the user, ensuring a clear and straightforward execution of the script.
 handle_p_opt() {
   purge_nvim_directory
-  purge_flag=true
   handle_default_opt 
   echo "-> All files except 'install' have been moved to '$destination_dir' and previous files have been obliterated"
 }
@@ -161,13 +159,13 @@ while getopts "bp" opt; do
             if [ "$purge_flag" = true ]; then
               print_and_reject_opts
             fi
-            handle_b_opt
+            backup_flag=true
             ;;
         p) # Purge the nvim directory
             if [ "$backup_flag" = true ]; then
               print_and_reject_opts
             fi
-            handle_p_opt
+            purge_flag=true
             ;;
         \?)
             echo "~~ Usage: $0 [-b] [-p] (optional -b flag to create a backup, -p flag to purge the nvim directory)"
@@ -175,6 +173,14 @@ while getopts "bp" opt; do
             ;;
     esac
 done
+
+if [ "$" = true ]; then
+  handle_b_opt
+fi
+
+if [ "$" = true ]; then
+  handle_p_opt
+fi
 
 # This section of the script is dedicated to handling default behavior when no command line options are provided. It ensures that key tasks are executed in a clear and understandable manner:
 # 1. **Option Verification**: The script first verifies whether any command line options have been provided by examining the value of `$OPTIND`. If `$OPTIND` equals 1, it means that no command line options were specified.
