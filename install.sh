@@ -174,11 +174,11 @@ while getopts "bp" opt; do
     esac
 done
 
-if [ "$" = true ]; then
+if [ "$backup_flag" = true ]; then
   handle_b_opt
 fi
 
-if [ "$" = true ]; then
+if [ "$purge_flag" = true ]; then
   handle_p_opt
 fi
 
