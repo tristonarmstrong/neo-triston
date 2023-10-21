@@ -4,7 +4,7 @@ return {
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },
   event = "UIEnter",
-  lazy=true,
+  lazy = true,
   config = function()
     require('oil').setup()
 

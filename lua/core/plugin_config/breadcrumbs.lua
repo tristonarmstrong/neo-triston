@@ -1,3 +1,3 @@
-    require("nvim-navic").setup({
-    event = "User FileOpened"
-  })
+require("nvim-navic").setup({
+  event = "User FileOpened"
+})

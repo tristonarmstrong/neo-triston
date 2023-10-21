@@ -3,6 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim"
   },
-  lazy=true,
-  event="UIEnter",
+  lazy = true,
+  event = "UIEnter",
 }

@@ -13,35 +13,34 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  'nvim-treesitter/nvim-treesitter',
-  {import = "core.plugin_config.navic"},
-  {import = "core.plugin_config.colorscheme"},
-  {import = "core.plugin_config.comment"},
-  {import = "core.plugin_config.illuminate"},
-  {import = "core.plugin_config.indent-blankline"},
-  {import = "core.plugin_config.mason"},
-  {import = "core.plugin_config.nvim-cmp"},
-  {import = "core.plugin_config.nvim-tree"},
-  {import = "core.plugin_config.telescope"},
-  {import = "core.plugin_config.lazygit"},
-  {import = "core.plugin_config.oil"},
-  {import = "core.plugin_config.whichkey"},
-  {import = "core.plugin_config.lualine"}
-},
-{
-  install = {
-    colorscheme = {"nightfly"}
+    'nvim-treesitter/nvim-treesitter',
+    { import = "core.plugin_config.navic" },
+    { import = "core.plugin_config.colorscheme" },
+    { import = "core.plugin_config.comment" },
+    { import = "core.plugin_config.illuminate" },
+    { import = "core.plugin_config.indent-blankline" },
+    { import = "core.plugin_config.mason" },
+    { import = "core.plugin_config.nvim-cmp" },
+    { import = "core.plugin_config.nvim-tree" },
+    { import = "core.plugin_config.telescope" },
+    { import = "core.plugin_config.lazygit" },
+    { import = "core.plugin_config.oil" },
+    { import = "core.plugin_config.whichkey" },
+    { import = "core.plugin_config.lualine" }
   },
-  ui = {
-    border = "solid",
-    title = "Lazy Window"
-  },
-  checker = {
-    enabled = true,
-    frequency = 3600
-  },
-  change_detection = {
-    notify = false
-  }
-})
-
+  {
+    install = {
+      colorscheme = { "nightfly" }
+    },
+    ui = {
+      border = "solid",
+      title = "Lazy Window"
+    },
+    checker = {
+      enabled = true,
+      frequency = 3600
+    },
+    change_detection = {
+      notify = false
+    }
+  })

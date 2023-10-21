@@ -1,5 +1,5 @@
 return {
   "RRethy/vim-illuminate",
-    event = "User FileOpened",
-    enabled = true,
-  }
+  event = "User FileOpened",
+  enabled = true,
+}
