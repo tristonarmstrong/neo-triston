@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "Started the install script"
-
-exit 1
-
+echo "... -> checking for a current neovim installation"
 
 # Check if Neovim is installed
 if command -v nvim &> /dev/null; then
-    echo "Neovim is already installed."
+    echo "... -> Neovim is already installed"
+    echo "_____"
+    echo "     | Exiting w/o installing"
+    echo "     v"
     exit 1
 fi
 
@@ -20,7 +20,7 @@ fi
         elif command -v pacman &> /dev/null; then
             sudo pacman -S neovim --noconfirm
         else
-            echo "Unsupported package manager. Please install Neovim manually."
+            echo "!!! Unsupported package manager. Please install Neovim manually. !!!"
             exit 1
         fi
     elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -28,13 +28,15 @@ fi
         if command -v brew &> /dev/null; then
             brew install neovim
         else
-            echo "Homebrew is required for Neovim installation on macOS. Please install Homebrew and then Neovim manually."
+            echo "!!! Homebrew is required for Neovim installation on macOS. Please install Homebrew and then Neovim manually. !!!"
             exit 1
         fi
     else
-        echo "Unsupported OS. Please install Neovim manually."
+        echo "!!! Unsupported OS. Please install Neovim manually. !!!"
         exit 1
     fi
 
-    echo "Neovim has been installed."
-
+    echo "... -> Neovim has been installed."
+    echo "_____"
+    echo "     | Exiting, install assumed success"
+    echo "     v"

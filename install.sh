@@ -6,8 +6,6 @@ source "$(dirname "$0")/lib/check_nvim_installed.sh"
 # Continue with the rest of your installation steps
 echo "-> Continuing with the installation..."
 
-exit 1
-
 # Check if the OS is Windows and exit with a message
 if [ -n "$OS" ]; then
     echo "!!! Ew... Windows? I just puked a little... !!!"
