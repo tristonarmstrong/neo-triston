@@ -52,13 +52,20 @@ create_backup() {
     if [ ! -d "$backup_dir" ]; then
       mkdir -p "$backup_dir"
     fi
-    # Ensure that we don't move the 'nvim.bak' directory into itself
-    shopt -s dotglob # To include hidden files and folders
-    mv "$destination_dir"/* "$backup_dir"
-    shopt -u dotglob # Reset the dotglob option
+
+    # Exclude the 'nvim.bak' directory itself from the files to be moved
+    shopt -s dotglob
+    for item in "$destination_dir"/*; do
+      if [ "$item" != "$backup_dir" ]; then
+        mv "$item" "$backup_dir"
+      fi
+    done
+    shopt -u dotglob
+
     echo "-> Created backup of '$destination_dir' in '$backup_dir'"
   fi
 }
+
 
 
 
