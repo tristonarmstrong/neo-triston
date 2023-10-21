@@ -49,7 +49,8 @@ purge_nvim_directory() {
 # In summary, the enhanced `create_backup` function specializes in creating a backup of the destination directory while diligently preventing the 'nvim.bak' directory from being moved into itself. It ensures that all relevant configuration files and directories, including hidden ones, are included in the backup, and it provides clear notifications to maintain transparency in the script's execution.
 create_backup() {
   if [ -d "$destination_dir" ]; then
-    backup_dir="$destination_dir/nvim.bak"
+    current_time=$(date +'%m-%d-%Y-%H-%M-%S')
+    backup_dir="$destination_dir/nvim.bak$current_time"
     if [ ! -d "$backup_dir" ]; then
       mkdir -p "$backup_dir"
     fi
