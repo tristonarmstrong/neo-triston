@@ -20,7 +20,7 @@ backup_flag=false
 # Function to purge the nvim directory
 purge_nvim_directory() {
     if [ -d "$destination_dir" ]; then
-        rm -rf "$destination_dir/*"
+        rm -rf "$destination_dir"/*
         echo "-> Purged '$destination_dir'"
     fi
 }
