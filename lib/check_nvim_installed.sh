@@ -6,7 +6,7 @@ echo "... -> checking for a current neovim installation"
 if command -v nvim &> /dev/null; then
     echo "... -> Neovim is already installed"
     echo "_____"
-    echo "     | Exiting w/o installing"
+    echo "     | Exiting w/o installing neovim"
     echo "     v"
     return 
 fi
@@ -38,5 +38,5 @@ fi
 
     echo "... -> Neovim has been installed."
     echo "_____"
-    echo "     | Exiting, install assumed success"
+    echo "     | Exiting, neovim install assumed success"
     echo "     v"
