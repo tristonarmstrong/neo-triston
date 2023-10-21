@@ -25,6 +25,7 @@ require("lazy").setup({
   {import = "core.plugin_config.telescope"},
   {import = "core.plugin_config.lazygit"},
   {import = "core.plugin_config.oil"},
+  {import = "core.plugin_config.whichkey"},
   {import = "core.plugin_config.lualine"}
 },
 {
