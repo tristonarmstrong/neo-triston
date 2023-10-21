@@ -37,15 +37,16 @@ purge_nvim_directory() {
 }
 
 
-# The `create_backup` function is an integral part of a larger script and is primarily responsible for creating a backup of the existing 'nvim' configuration directory. However, it does so with meticulous care to avoid inadvertently moving the 'nvim.bak' directory into itself, which can result in an invalid operation.
-# Here's a detailed breakdown of its functionality:
-# 1. **Directory Verification**: The function initiates by confirming the existence of the destination directory, represented by the variable "$destination_dir." This is a vital step in ensuring that a backup is relevant and necessary.
-# 2. **Backup Directory Setup**: If the destination directory is confirmed to exist, the function proceeds to set up a backup directory, named 'nvim.bak,' within the destination directory. This new directory will serve as a secure location for storing the backup.
-# 3. **Dotglob Option**: The script enables the 'dotglob' option using the `shopt` command. This option allows the inclusion of hidden files and folders when working with glob patterns, ensuring that the backup includes all relevant configuration files and directories.
-# 4. **Backup Execution**: With the backup directory established and the 'dotglob' option in place, the function employs the `mv` command to move all files and directories from the destination directory into the 'nvim.bak' directory. Importantly, this step is executed with precision to prevent the 'nvim.bak' directory from being moved into itself, which could result in an invalid operation.
-# 5. **Completion Message**: To keep the user informed, the function emits a message to the console. This message confirms that a backup of the destination directory has been successfully created in the 'nvim.bak' directory.
-# 6. **Dotglob Option Reset**: After completing the backup operation, the script resets the 'dotglob' option to its default state, ensuring that future file operations proceed without including hidden files and folders by default.
-# In summary, the `create_backup` function is designed to create a backup of the destination directory, taking special precautions to prevent the 'nvim.bak' directory from being inadvertently moved into itself. This function ensures that all relevant configuration files and directories are included in the backup and provides clear notifications to the user to maintain transparency in the script's execution.
+# The `create_backup` function is responsible for creating a backup of the existing 'nvim' configuration directory. In this version, particular care has been taken to prevent the 'nvim.bak' directory from being accidentally moved into itself, addressing a common issue observed in previous versions.
+# Here's a comprehensive breakdown of its functionality:
+# 1. **Directory Verification**: The function commences by confirming the existence of the destination directory, represented by the variable "$destination_dir." This verification is essential to ensure that creating a backup is a valid operation.
+# 2. **Backup Directory Preparation**: If the destination directory exists, the function proceeds to set up a backup directory named 'nvim.bak' within the destination directory. This directory will serve as a secure location for storing the backup files.
+# 3. **Dotglob Option Activation**: To include hidden files and folders while working with glob patterns, the script enables the 'dotglob' option using the `shopt` command. This step ensures that hidden configuration files are also included in the backup.
+# 4. **File Iteration**: The function utilizes a `for` loop to iterate through files and directories within the destination directory. It processes each item, excluding the 'nvim.bak' directory itself from the list of items to be moved.
+# 5. **Backup Execution**: The script employs the `mv` command to move the identified files and directories into the 'nvim.bak' directory, effectively creating the backup. Importantly, it prevents the 'nvim.bak' directory itself from being moved into itself, addressing the issue that resulted in an invalid operation.
+# 6. **Completion Message**: To maintain transparency, the function issues a message to the console, confirming that a backup of the destination directory has been successfully created in the 'nvim.bak' directory.
+# 7. **Dotglob Option Reset**: After the backup operation is completed, the script resets the 'dotglob' option to its default state, ensuring that hidden files and folders are not included in future file operations by default.
+# In summary, the enhanced `create_backup` function specializes in creating a backup of the destination directory while diligently preventing the 'nvim.bak' directory from being moved into itself. It ensures that all relevant configuration files and directories, including hidden ones, are included in the backup, and it provides clear notifications to maintain transparency in the script's execution.
 create_backup() {
   if [ -d "$destination_dir" ]; then
     backup_dir="$destination_dir/nvim.bak"
