@@ -15,7 +15,7 @@ destination_dir="$HOME/.config/nvim"
 # Function to purge the nvim directory
 purge_nvim_directory() {
     if [ -d "$destination_dir" ]; then
-        rm -r "$destination_dir"
+        rm -rf "$destination_dir/*"
         echo "-> Purged '$destination_dir'"
     fi
 }
@@ -97,6 +97,7 @@ while getopts "bp" opt; do
 done
 
 # check_and_create_directory
+check_and_create_directory
 
 # Move all files except the "install" file to the destination directory
 move_files_except_install
