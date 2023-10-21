@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Import and call the Neovim installation script
-source "$(dirname "$0")/lib/check_nvim_installed.sh"
-
-# Continue with the rest of your installation steps
-echo "-> Continuing with the config installation..."
-
 # Check if the OS is Windows and exit with a message
 if [ -n "$OS" ]; then
     echo "!!! Ew... Windows? I just puked a little... !!!"
     exit 1
 fi
+
+# Import and call the Neovim installation script
+source "$(dirname "$0")/lib/check_nvim_installed.sh"
+
+# Continue with the rest of your installation steps
+echo "-> Continuing with the config installation..."
 
 # Define the source directory as the current directory
 source_dir="$(pwd)"
