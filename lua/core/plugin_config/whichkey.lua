@@ -14,7 +14,15 @@ return {
         g = { name = "Git" },
         b = {
           name = "Buffer",
-          c = { "<cmd>bdelete<cr>", "Close" }
+          c = { "<cmd>bdelete<cr>", "Close" },
+          n = { "<cmd>bnext<cr>", "Next" },
+          p = { "<cmd>bprev<cr>", "Previous" }
+        },
+        s = {
+          name = "Sidebar",
+          c = { "<cmd>SidebarNvimClose<cr>", "Close" },
+          f = { "<cmd>SidebarNvimFocus<cr>", "Focus" },
+          o = { "<cmd>SidebarNvimOpen<cr>", "Open" }
         }
       }
     })
