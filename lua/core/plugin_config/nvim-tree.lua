@@ -3,14 +3,14 @@ return {
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",   -- not strictly required, but recommended
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
   },
   config = function()
     local neotree = require('neo-tree')
     neotree.setup({
       window = {
-        position = 'float'
+        --        position = 'float'
       }
     })
 
