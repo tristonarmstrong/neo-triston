@@ -9,9 +9,11 @@ return {
   config = function()
     local neotree = require('neo-tree')
     neotree.setup({
-      window = {
-        --        position = 'float'
-      }
+      close_if_last_window = true,
+      source_selector = {
+        winbar = true,
+      },
+
     })
 
     local keymap = vim.keymap
