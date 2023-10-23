@@ -33,7 +33,10 @@ return {
           e = { "<cmd>Neotree toggle<cr>", "toggle" },
           f = { "<cmd>Neotree focus<cr>", "focus" }
         },
-        q = { "<cmd>q<cr>", "Quit" }
+        q = { "<cmd>q<cr>", "Quit" },
+        l = {
+          name = "lsp"
+        }
       }
     })
   end
