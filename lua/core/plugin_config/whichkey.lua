@@ -23,6 +23,10 @@ return {
           c = { "<cmd>SidebarNvimClose<cr>", "Close" },
           f = { "<cmd>SidebarNvimFocus<cr>", "Focus" },
           o = { "<cmd>SidebarNvimOpen<cr>", "Open" }
+        },
+        t = {
+          name = "Twilight",
+          t = { "<cmd>Twilight<cr>", "toggle" }
         }
       }
     })

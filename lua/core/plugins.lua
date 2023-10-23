@@ -29,6 +29,7 @@ require("lazy").setup({
     { import = "core.plugin_config.dashboard" },
     { import = "core.plugin_config.lualine" },
     { import = "core.plugin_config.sidebar" },
+    { import = "core.plugin_config.twilight" },
   },
   {
     install = {
