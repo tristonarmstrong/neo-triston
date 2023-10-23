@@ -13,10 +13,6 @@ return {
       source_selector = {
         winbar = true,
       },
-
     })
-
-    local keymap = vim.keymap
-    keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
   end
 }

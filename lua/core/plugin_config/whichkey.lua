@@ -27,7 +27,13 @@ return {
         t = {
           name = "Twilight",
           t = { "<cmd>Twilight<cr>", "toggle" }
-        }
+        },
+        e = {
+          name = "NeoTree",
+          e = { "<cmd>Neotree toggle<cr>", "toggle" },
+          f = { "<cmd>Neotree focus<cr>", "focus" }
+        },
+        q = { "<cmd>q<cr>", "Quit" }
       }
     })
   end
