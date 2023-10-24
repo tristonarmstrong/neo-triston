@@ -14,7 +14,9 @@ return {
 
       mason_lspconfig.setup_handlers({
         function(server_name)
+          local capabilities = require('cmp_nvim_lsp').default_capabilities()
           require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
             on_attach = function(_, _)
               vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
               vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})

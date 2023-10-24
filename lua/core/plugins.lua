@@ -40,8 +40,7 @@ require("lazy").setup({
       title = "Lazy Window"
     },
     checker = {
-      enabled = true,
-      frequency = 3600
+      enabled = false,
     },
     change_detection = {
       notify = false
