@@ -2,9 +2,12 @@
 I created this Repository because I tend to switch things up a lot, using different operating systems and starting fresh all the time. This will come in handy, unless im on windows cause...... windows
 
 ## The Install Script
-This script simplifies the process of migrating your Neovim configuration files to the standard `$HOME/.config/nvim` directory. It works on macOS, Linux, and even reminds you how much we hate Windows.
+This script simplifies the process of creating/migrating your Neovim configuration files to the standard `$HOME/.config/nvim` directory. It works on macOS, Linux, and even reminds you how much we hate Windows.
 > [!NOTE]
 > youll notice theres a ton of comments in the scripts.. Thats mostly for me for future reference as well as for learning purposes
+
+> [!WARNING]
+> this script will install neovim if its not already
 
 ## How to Use
 
