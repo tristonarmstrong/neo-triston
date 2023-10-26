@@ -7,7 +7,7 @@ return {
       main_image = "neovim",
       debounce_timeout = 10,
       enable_line_number = true,
-      buttons = true,
+      buttons = false,
       show_time = true,
 
       editing_text = "Editing notUrBiz.rs",
