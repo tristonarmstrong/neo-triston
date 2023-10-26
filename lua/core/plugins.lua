@@ -30,6 +30,8 @@ require("lazy").setup({
     { import = "core.plugin_config.lualine" },
     { import = "core.plugin_config.sidebar" },
     { import = "core.plugin_config.twilight" },
+    { import = "core.plugin_config.coc" },
+    { import = "core.plugin_config.discordPresence" },
   },
   {
     install = {
