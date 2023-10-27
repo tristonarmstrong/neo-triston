@@ -1,5 +1,11 @@
 return {
   "numToStr/Comment.nvim",
   event = { "BufReadPre", "BufNewFile" },
-  config = true
+  config = function()
+    require('Comment').setup({
+      toggler = {
+        line = '<leader>/',
+      }
+    })
+  end
 }
