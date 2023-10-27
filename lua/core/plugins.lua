@@ -32,6 +32,7 @@ require("lazy").setup({
     { import = "core.plugin_config.twilight" },
     { import = "core.plugin_config.coc" },
     { import = "core.plugin_config.discordPresence" },
+    { import = "core.plugin_config.tabnine" },
   },
   {
     install = {
