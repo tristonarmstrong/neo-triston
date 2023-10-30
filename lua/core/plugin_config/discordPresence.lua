@@ -5,7 +5,7 @@ return {
       auto_update = true,
       neovim_image_text = "neo-triston",
       main_image = "neovim",
-      debounce_timeout = 10,
+      debounce_timeout = 1000,
       enable_line_number = true,
       buttons = false,
       show_time = true,
