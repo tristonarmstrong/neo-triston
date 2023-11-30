@@ -10,9 +10,22 @@ return {
     local neotree = require('neo-tree')
     neotree.setup({
       close_if_last_window = true,
+      window = {
+        position = 'float'
+      },
       source_selector = {
         winbar = true,
       },
+      filesystem = {
+        follow_current_file = {
+          enabled = true
+        }
+      },
+      buffers = {
+        follow_current_file = {
+          enabled = true
+        }
+      }
     })
   end
 }

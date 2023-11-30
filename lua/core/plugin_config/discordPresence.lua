@@ -7,8 +7,8 @@ return {
       main_image = "neovim",
       debounce_timeout = 1000,
       enable_line_number = true,
-      buttons = false,
-      show_time = true,
+      buttons = true,
+      show_time = false,
 
       editing_text = "Editing notUrBiz.rs",
       file_explorer_text = "Browsing theMultiverse/*",
@@ -18,7 +18,6 @@ return {
       workspace_text = "Working on metaWorkspace",
       line_number_text = "Line %s out of %s",
 
-      log_level = "debug"
     })
   end
 }

@@ -1,3 +1,4 @@
+-- comments code obviously
 return {
   "numToStr/Comment.nvim",
   event = { "BufReadPre", "BufNewFile" },

@@ -1,4 +1,6 @@
 return {
   "folke/twilight.nvim",
-  config = true
+  opts = {
+    -- configs here
+  }
 }

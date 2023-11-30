@@ -35,7 +35,8 @@ return {
         },
         q = { "<cmd>q<cr>", "Quit" },
         l = {
-          name = "lsp"
+          name = "lsp",
+          f = { "<cmd>EslintFixAll<cr>", "eslint fix" }
         }
       }
     })
